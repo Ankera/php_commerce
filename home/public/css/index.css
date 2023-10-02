@@ -1,0 +1,217 @@
+*{
+	padding:0px;
+	margin:0px;
+	font-family: 微软雅黑;
+}
+
+a{
+	text-decoration:none;
+}
+
+.main{
+	width:1300px;
+	margin:0 auto;
+}
+
+.header{
+	height:50px;
+	background:#272822;
+	padding-left:15px;
+	padding-right:15px;
+}
+
+.headerLogo{
+	float: left;
+}
+
+.headerLeft{
+	float: left;
+	color:#fff;
+	line-height: 50px;
+	font-size:20px;
+	font-weight:bold;
+	margin-left:15px;
+}
+
+.headerRight{
+	float: right;
+	line-height: 50px;
+}
+
+.headerRight a{
+	color:#fff;
+	margin-left:15px;
+}
+
+.headerRight a:hover{
+	color:#ccc;
+}
+
+.nav{
+	height:5px;
+}
+
+.ads{
+	height:200px;
+}
+
+.content{
+}
+
+.footer{
+	height:50px;
+	background: #272822;
+}
+
+.footer ul{
+	list-style:none;
+	padding-left:450px;
+	line-height: 50px;
+}
+
+.footer ul li{
+	float: left;
+	margin-left:15px;
+}
+
+.footer a{
+	color:#fff;
+}
+
+.footer a:hover{
+	color:#ccc;
+}
+
+.floor{
+	margin-bottom:15px;
+}
+
+.floorHeader{
+	height:30px;
+	background: #272822;
+}
+
+.floorFooter{
+	height:250px;
+	padding-top:15px;	
+	padding-bottom:5px;	
+}
+
+.floorFooter2{
+	padding-top:15px;	
+	padding-bottom:5px;	
+}
+
+.floorFooter2 .shop{
+	margin-bottom:30px;
+}
+
+.floorFooter2 table td{
+	text-align:center;
+}
+
+.floorFooter2 .comment{
+	padding-left:15px;
+	padding-right:15px;
+	height:100px;
+	margin-bottom:20px;
+	border-bottom:1px dashed #ccc;
+}
+
+.floorFooter2 .comment .left{
+	float: left;
+	width:100px;
+	height:100%;
+	text-align:center;
+	margin-left:-15px;
+	background: #888;
+	border-radius:100px;
+	color:#fff;
+}
+
+.floorFooter2 .comment .left .logo{
+	margin-top:10px;
+}
+
+.floorFooter2 .comment .right{
+	float: left;	
+	width:1165px;
+	height:100%;
+	padding-left:15px;
+}
+
+.shop{
+	width:200px;
+	height:235px;
+	float: left;
+	margin-left:100px;
+	border:5px solid #aaa;
+	border-radius:10px;
+	box-shadow:0px 0px 5px 5px #ccc;
+}
+
+.shopInfo{
+	padding-left:5px;
+	padding-right:5px;
+}
+
+.shopPrice{
+	float: right;
+}
+
+.floorHeader{
+	line-height: 30px;	
+	color:#fff;
+	padding-left:15px;
+	padding-right:15px;
+}
+
+.floorHeader a{
+	color:#fff;
+}
+.floorHeader a:hover{
+	color:#ccc;
+}
+.floorHeader .left{
+	float: left;
+}
+.floorHeader .right{
+	float: right;
+}
+
+.clear{
+	clear:both;
+}
+
+.cartDel{
+	background: #e4393c;
+	color:#fff;
+	border-radius:5px;
+	padding:5px;
+}
+
+.cartDel:hover{
+	box-shadow:1px 1px 1px 1px #ccc;
+}
+
+.cartNum{
+	background: #e4393c;
+	color:#fff;
+	border-radius:5px;
+	padding:5px 15px;
+	width:50px;
+	height:50px;
+}
+
+.cartNum:hover{
+	box-shadow:1px 1px 1px 1px #ccc;
+}
+
+
+table tr{
+	height:50px;
+}
+
+table tr td{
+	border-top:1px dashed #ccc;
+}
