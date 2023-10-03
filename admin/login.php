@@ -14,7 +14,7 @@
     </style>
 </head>
 <body id="userlogin_body">
-<form>
+<form action='./check.php' method='post'>
     <div></div>
     <div id="user_login">
         <dl>
@@ -38,7 +38,7 @@
                                             class="txtusernamecssclass"
                                             id="txtusername"
                                             maxlength="20"
-                                            name="txtusername"
+                                            name="username"
                                     />
                                 </li>
                             </ul>
@@ -49,7 +49,7 @@
                                             class="txtpasswordcssclass"
                                             id="txtpassword"
                                             type="password"
-                                            name="txtpassword"
+                                            name="password"
                                     />
                                 </li>
                             </ul>

@@ -71,8 +71,9 @@
 
     <h4>系统管理</h4>
     <div class="tab-hide" data-include="logout">
-        <p><a href="logout.php" target='_top'>|-退出系统</a></p>
-        <p><a href="./index.php" target='_blank'>|-网站首页</a></p>
+        <p><a href="/php_commerce/admin/adminpass.php">|-修改口令</a></p>
+        <p><a href="/php_commerce/admin/logout.php">|-退出系统</a></p>
+        <p><a href="/php_commerce/admin/index.php">|-网站首页</a></p>
     </div>
 </div>
 <script>
