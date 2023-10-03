@@ -36,48 +36,47 @@
 
     <h4>分类管理</h4>
     <div class="tab-hide" data-include="class">
-        <p><a href='class/index.php' target='right'>|-查看分类</a></p>
-        <p><a href='class/add.php' target='right'>|-添加分类</a></p>
+        <p><a href='/php_commerce/admin/class/index.php'>|-查看分类</a></p>
+        <p><a href='/php_commerce/admin/class/add.php'>|-添加分类</a></p>
     </div>
     <h4>品牌管理:</h4>
     <div class="tab-hide" data-include="brand">
-        <p><a href=' data-include="class">/index.php' target='right'>|-查看品牌</a></p>
-        <p><a href='brand/add.php' target='right'>|-添加品牌</a></p>
+        <p><a href='/php_commerce/admin/brand/index.php'>|-查看品牌</a></p>
+        <p><a href='/php_commerce/admin/brand/add.php'>|-添加品牌</a></p>
     </div>
     <h4>商品管理</h4>
     <div class="tab-hide" data-include="shop">
-        <p><a href='shop/index.php' target='right'>|-查看商品</a></p>
-        <p><a href='shop/add.php' target='right'>|-添加商品</a></p>
+        <p><a href='/php_commerce/admin/shop/index.php'>|-查看商品</a></p>
+        <p><a href='/php_commerce/admin/shop/add.php'>|-添加商品</a></p>
     </div>
     <h4>评论管理</h4>
     <div class="tab-hide" data-include="comment">
-        <p><a href='comment/index.php' target='right'>|-查看评论</a></p>
+        <p><a href='/php_commerce/admin/comment/index.php'>|-查看评论</a></p>
     </div>
     <h4>订单状态</h4>
     <div class="tab-hide" data-include="status">
-        <p><a href='status/index.php' target='right'>|-查看状态</a></p>
-        <p><a href='status/add.php' target='right'>|-添加状态</a></p>
+        <p><a href='/php_commerce/admin/status/index.php'>|-查看状态</a></p>
+        <p><a href='/php_commerce/admin/status/add.php'>|-添加状态</a></p>
     </div>
     <h4>订单管理</h4>
     <div class="tab-hide" data-include="indent">
-        <p><a href='indent/index.php' target='right'>|-查看订单</a></p>
+        <p><a href='/php_commerce/admin/indent/index.php'>|-查看订单</a></p>
     </div>
 
     <h4>广告管理</h4>
     <div class="tab-hide" data-include="advert">
-        <p><a href='advert/index.php' target='right'>|-查看广告</a></p>
-        <p><a href='advert/index.php' target='right'>|-添加广告</a></p>
+        <p><a href='/php_commerce/admin/advert/index.php'>|-查看广告</a></p>
+        <p><a href='/php_commerce/admin/advert/index.php'>|-添加广告</a></p>
     </div>
 
     <h4>系统管理</h4>
     <div class="tab-hide" data-include="logout">
         <p><a href="logout.php" target='_top'>|-退出系统</a></p>
-        <p><a href="../index.php" target='_blank'>|-网站首页</a></p>
+        <p><a href="./index.php" target='_blank'>|-网站首页</a></p>
     </div>
 </div>
 <script>
     $('h4').click(function(){
-        console.log(111, $(this).next())
         $(this).next().toggle();
         $('div[class="tab-hide"]').not($(this).next()).hide();
     });
