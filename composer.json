@@ -1,2 +1,6 @@
 {
+  "require": {
+    "ext-gd": "*",
+    "ext-mysqli": "*"
+  }
 }
