@@ -38,3 +38,7 @@
 .main form p{
     margin-bottom:10px;
 }
+
+.main input[type="text"], .main select {
+    width: 210px;
+}
