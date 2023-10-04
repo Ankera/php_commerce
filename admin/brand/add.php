@@ -16,6 +16,7 @@ mysqli_close($conn)
 
 ?>
 <div class="main">
+    <div class="title"><span>添加品牌</span></div>
     <form action="./insert.php" method='post'>
         <p>品牌名称:</p>
         <p><label>

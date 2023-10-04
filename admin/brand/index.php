@@ -24,8 +24,8 @@ mysqli_close($conn);
             echo "<td>{$row['id']}</td>";
             echo "<td>{$row['name']}</td>";
             echo "<td>{$row['cname']}</td>";
-            echo "<td><a href='edit.php?id={$row['id']}'>修改</a></td>";
-            echo "<td><a href='delete.php?id={$row['id']}'>删除</a></td>";
+            echo "<td><a href='./edit.php?id={$row['id']}'>修改</a></td>";
+            echo "<td><a href='./delete.php?id={$row['id']}'>删除</a></td>";
             echo "</tr>";
         }
         ?>

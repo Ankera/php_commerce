@@ -39,7 +39,7 @@
         <p><a href='/php_commerce/admin/class/index.php'>|-查看分类</a></p>
         <p><a href='/php_commerce/admin/class/add.php'>|-添加分类</a></p>
     </div>
-    <h4>品牌管理:</h4>
+    <h4>品牌管理</h4>
     <div class="tab-hide" data-include="admin/brand">
         <p><a href='/php_commerce/admin/brand/index.php'>|-查看品牌</a></p>
         <p><a href='/php_commerce/admin/brand/add.php'>|-添加品牌</a></p>

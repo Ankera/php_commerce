@@ -16,6 +16,7 @@ mysqli_close($conn);
 ?>
 
 <div class="main">
+    <div class="title"><span>编辑用户</span></div>
     <form action="./update.php" method='post'>
         <p>用户名:</p>
         <p><label>

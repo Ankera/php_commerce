@@ -19,6 +19,7 @@ mysqli_close($conn);
 ?>
 
 <div class="main">
+    <div class="title"><span>编辑品牌</span></div>
     <form action="./update.php" method='post'>
         <p>品牌名称:</p>
         <p><label>

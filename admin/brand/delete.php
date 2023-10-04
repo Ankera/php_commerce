@@ -5,7 +5,7 @@ global $conn;
 
 $id = $_GET['id'];
 
-$sql = "DELETE FROM `class` WHERE id = '$id'";
+$sql = "DELETE FROM `brand` WHERE id = '$id'";
 
 if(mysqli_query($conn, $sql)){
     echo '<script>location="./index.php"</script>';

@@ -5,6 +5,7 @@ include './_top.php'
 ?>
 
 <div class="main">
+    <div class="title"><span>添加分类</span></div>
     <form action="./insert.php" method='post'>
         <p>用户名:</p>
         <p><input type="text" name='name'></p>
