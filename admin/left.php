@@ -79,6 +79,7 @@
 <script>
     $('h4').click(function(){
         $(this).next().toggle();
+        $(this).next().addClass('tab-active');
         $('div[class="tab-hide"]').not($(this).next()).hide();
     });
 
@@ -88,7 +89,9 @@
         const item = tabHides[i]
         const name = item.getAttribute('data-include')
         if(pathname.includes(name)){
-            $(`div[data-include="${name}"]`).toggle()
+            const currentDom = $(`div[data-include="${name}"]`);
+            currentDom.addClass('tab-active')
+            currentDom.toggle()
         }
     }
 </script>
