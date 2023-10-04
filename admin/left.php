@@ -66,7 +66,7 @@
     <h4>广告管理</h4>
     <div class="tab-hide" data-include="admin/advert">
         <p><a href='/php_commerce/admin/advert/index.php'>|-查看广告</a></p>
-        <p><a href='/php_commerce/admin/advert/index.php'>|-添加广告</a></p>
+        <p><a href='/php_commerce/admin/advert/add.php'>|-添加广告</a></p>
     </div>
 
     <h4>系统管理</h4>
