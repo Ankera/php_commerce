@@ -8,7 +8,7 @@ $password=md5($_POST['password']);
 
 echo $username, $password;
 
-$sql = "SELECT * FROM `user` WHERE username = '$username' AND `password` = '$password'";
+$sql = "SELECT * FROM `user` WHERE username = '$username' AND `password` = '$password' AND isadmin= '1'";
 
 $rst=mysqli_query($conn, $sql);
 
