@@ -14,7 +14,10 @@ $rst=mysqli_query($conn, $sql);
 
 $row=mysqli_fetch_assoc($rst);
 
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    // 如果会话未启动，则调用 session_start()
+    session_start();
+}
 if($row){
     $_SESSION['admin_username']=$username;
     $_SESSION['admin_userid']=$row['id'];

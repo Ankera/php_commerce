@@ -25,7 +25,7 @@ $root = '/'.$arr[1];
         if(isset($_SESSION['home_userid'])){
         ?>
             <a href="<?php echo $root ?>/home/person/index.php">【<?php echo $_SESSION['home_username'] ?>】个人中心</a>
-            <a href="<?php echo $root ?>/home/shop.php">购物车</a>
+            <a href="<?php echo $root ?>/home/cart/index.php">购物车</a>
             <a href="<?php echo $root ?>/home/logout.php">退出</a>
         <?php
         } else {

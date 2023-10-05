@@ -6,7 +6,7 @@ session_start();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>分类页面</title>
+    <title>购物车</title>
     <link rel="stylesheet" href="../public/css/index.css">
 </head>
 <body>
@@ -90,26 +90,68 @@ session_start();
             </div>
 
             <div class="floorFooter2">
-                <table width='100%' class='touch'>
-                    <tr>
-                        <th>选择</th>
-                        <th>姓名</th>
-                        <th>地址</th>
-                        <th>电话</th>
-                        <th>邮箱</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>
-                                <input type="radio" name="indent_id">
-                            </label>
-                        </td>
-                        <td>php</td>
-                        <td>php</td>
-                        <td>php</td>
-                        <td>php</td>
-                    </tr>
-                </table>
+                <?php
+                include '../../public/common/config.php';
+                global $conn;
+
+                $id = $_SESSION['home_userid'];
+                $sql = "SELECT * FROM touch WHERE user_id = {$id}";
+                $rst = mysqli_query($conn, $sql);
+                mysqli_close($conn);
+                ?>
+                <form action="./commit.php" method='post'>
+                    <table style="width: 100%" class='touch'>
+                        <tr>
+                            <th>选择</th>
+                            <th>姓名</th>
+                            <th>地址</th>
+                            <th>电话</th>
+                            <th>邮箱</th>
+                        </tr>
+                        <?php
+                        $i=0;
+                        while($row=mysqli_fetch_assoc($rst)){
+                            if($i==0){
+                                echo "<tr>
+                                    <td>
+                                        <input type='radio' checked name='touch_id' value='{$row['id']}'>
+                                    </td>
+                                    <td>{$row['name']}</td>
+                                    <td>{$row['addr']}</td>
+                                    <td>{$row['tel']}</td>
+                                    <td>{$row['email']}</td>
+                                </tr>";
+                            }else{
+                                echo "<tr>
+                                    <td>
+                                        <input type='radio' name='touch_id' value='{$row['id']}'>
+                                    </td>
+                                    <td>{$row['name']}</td>
+                                    <td>{$row['addr']}</td>
+                                    <td>{$row['tel']}</td>
+                                    <td>{$row['email']}</td>
+                                </tr>";
+                            }
+
+                            $i++;
+                        }
+                        ?>
+
+                    </table>
+
+                    <div class="floor">
+                        <div class="floorHeader">
+                            <div class="left">
+                                <span>提交我的订单:</span>
+                            </div>
+
+                        </div>
+
+                        <div class="floorFooter2">
+                            <p><input type="submit" value="提交订单" class='commit'></p>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
 
