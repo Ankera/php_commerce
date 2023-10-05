@@ -6,12 +6,12 @@ $root = '/'.$arr[1];
 
 <div class="header">
     <div class='headerLogo'>
-        <a href="./index.php">
-            <img src="./public/img/logo.png" alt="">
+        <a href="<?php echo $root?>/home/index.php">
+            <img src="<?php echo $root?>/home/public/img/logo.png" alt="">
         </a>
     </div>
     <div class="headerLeft">
-        <a href="./index.php" style="color: #ffffff">
+        <a href="<?php echo $root?>/home/index.php" style="color: #ffffff">
             <span>My shop15商场</span>
         </a>
     </div>

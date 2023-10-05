@@ -11,7 +11,8 @@
     include 'header.php';
     include "../public/common/config.php";
     global $conn;
-    $sqlShop = "SELECT shop.*, brand.`name` AS bname FROM shop, brand WHERE shop.brand_id = brand.id AND shop.id = 4";
+    $id = $_GET['shop_id'];
+    $sqlShop = "SELECT shop.*, brand.`name` AS bname FROM shop, brand WHERE shop.brand_id = brand.id AND shop.id = {$id}";
     $rstShop = mysqli_query($conn, $sqlShop);
     $rowShop = mysqli_fetch_assoc($rstShop);
     ?>
@@ -26,7 +27,7 @@
             </div>
 
             <div class="floorFooter2">
-                <table width='100%'>
+                <table style="width: 100%">
                     <tr>
                         <th>图片</th>
                         <th>价格</th>
@@ -40,7 +41,7 @@
                         <td><?php echo $rowShop['price']?>元</td>
                         <td><?php echo $rowShop['stock']?></td>
                         <td>
-                            <a href="">
+                            <a href="./cart/insert.php?id=<?php echo $rowShop['id'] ?>">
                                 <img src="public/img/cart.jpg" alt="">
                             </a>
                         </td>

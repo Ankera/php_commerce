@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>分类页面</title>
+    <title>分类</title>
     <link rel="stylesheet" href="public/css/index.css">
 </head>
 <body>
@@ -21,7 +21,7 @@
         <div class="floor">
             <div class="floorHeader">
                 <div class="left">
-                    <span><a href='./index.php'>首页</a> &raquo;
+                    <span>品牌
                     <?php
                     $bname = $_GET['bname'];
                     echo $bname;
@@ -29,12 +29,6 @@
                     </span>
                 </div>
                 <div class="right">
-						<span>
-							<a href="">Lenovo</a>
-						</span>
-                    <span>
-							<a href="">Dell</a>
-						</span>
                 </div>
             </div>
 
@@ -42,7 +36,7 @@
                 <?php
                 while($rowGoods=mysqli_fetch_assoc($rstGoods)){
                   ?>
-                    <a href="">
+                    <a href="./shop.php?shop_id=<?php echo $rowGoods['id']?>">
                         <div class='shop'>
                             <div class="shopImg">
                                 <img src="../public/uploads/<?php echo $rowGoods['img']?>" alt="">

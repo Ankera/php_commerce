@@ -15,9 +15,13 @@
         <div class="login">
             <div class='loginForm'>
                 <form action="">
-                    <p><input type="text" name='username' placeholder='用户名'></p>
+                    <p><label>
+                            <input type="text" name='username' placeholder='用户名'>
+                        </label></p>
 
-                    <p><input type="password" name='password' placeholder='密码'></p>
+                    <p><label>
+                            <input type="password" name='password' placeholder='密码'>
+                        </label></p>
 
                     <p><input type="submit" value="登录"></p>
                 </form>

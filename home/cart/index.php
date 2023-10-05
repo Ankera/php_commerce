@@ -1,3 +1,7 @@
+<?php
+session_start();
+//$_SESSION['shops']=array();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,7 +25,7 @@
             </div>
 
             <div class="floorFooter2">
-                <table width='100%'>
+                <table style="width: 100%">
                     <tr>
                         <th>商品</th>
                         <th>图片</th>
@@ -31,95 +35,47 @@
                         <th>合计</th>
                         <th>删除</th>
                     </tr>
-                    <tr>
-                        <td>罗技-3</td>
-                        <td>
-                            <img src="../public/img/shop.jpg" width='100px'>
-                        </td>
-                        <td>100元</td>
-                        <td>1000</td>
-                        <td>
-                            <a href="" class='cartNum'>-</a>
-                            <span> 1 </span>
-                            <a href="" class='cartNum'>+</a>
-                        </td>
-                        <td>300</td>
-                        <td>
-                            <a href="" class='cartDel'>删除</a>
-                        </td>
+                    <?php
+                    if(!$_SESSION['shops']){
+                        echo "<div class='goods'>您还未购买任何商品，请先购物，<a href='../index.php' class='cartNum'>购物</a></div>";
+                    } else {
+                    foreach ($_SESSION['shops'] as $shop){
+                        ?>
+                        <tr>
+                            <td><?php echo $shop['name'] ?></td>
+                            <td>
+                                <img alt="" src="../../public/uploads/<?php echo $shop['img'] ?>" width='100px'>
+                            </td>
+                            <td><?php echo $shop['price'] ?> </td>
+                            <td><?php echo $shop['stock'] ?> </td>
+                            <td>
+                                <a href="./cut.php?id=<?php echo $shop['id']?>" class='cartNum'>-</a>
+                                <span> <?php echo $shop['num'] ?> </span>
+                                <a href="./add.php?id=<?php echo $shop['id']?>" class='cartNum'>+</a>
+                            </td>
+                            <td><?php echo $shop['price'] * $shop['num'] ?></td>
+                            <td>
+                                <a href="./delete.php?id=<?php echo $shop['id'] ?>" class='cartDel'>删除</a>
+                            </td>
+                        </tr>
+                    <?php
+                    }}
+                    ?>
+
+                    <tr class='cartTot'>
+                        <td colspan='2'><a href="../index.php" class='cartNum'>继续购物</a></td>
+                        <td colspan='2'><a href="./clear.php" class='cartNum'>清空购物车</a></td>
+                        <td>&nbsp;</td>
+                        <td>总合计:</td>
+                        <td><?php
+                            $total = 0;
+                            foreach ($_SESSION['shops'] as $shop){
+                                $total += $shop['price']*$shop['num'];
+                            }
+                            echo $total;
+                            ?>元</td>
                     </tr>
 
-                    <tr>
-                        <td>罗技-3</td>
-                        <td>
-                            <img src="../public/img/shop.jpg" width='100px'>
-                        </td>
-                        <td>100元</td>
-                        <td>1000</td>
-                        <td>
-                            <a href="" class='cartNum'>-</a>
-                            <span> 1 </span>
-                            <a href="" class='cartNum'>+</a>
-                        </td>
-                        <td>300</td>
-                        <td>
-                            <a href="" class='cartDel'>删除</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>罗技-3</td>
-                        <td>
-                            <img src="../public/img/shop.jpg" width='100px'>
-                        </td>
-                        <td>100元</td>
-                        <td>1000</td>
-                        <td>
-                            <a href="" class='cartNum'>-</a>
-                            <span> 1 </span>
-                            <a href="" class='cartNum'>+</a>
-                        </td>
-                        <td>300</td>
-                        <td>
-                            <a href="" class='cartDel'>删除</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>罗技-3</td>
-                        <td>
-                            <img src="../public/img/shop.jpg" width='100px'>
-                        </td>
-                        <td>100元</td>
-                        <td>1000</td>
-                        <td>
-                            <a href="" class='cartNum'>-</a>
-                            <span> 1 </span>
-                            <a href="" class='cartNum'>+</a>
-                        </td>
-                        <td>300</td>
-                        <td>
-                            <a href="" class='cartDel'>删除</a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>罗技-3</td>
-                        <td>
-                            <img src="../public/img/shop.jpg" width='100px'>
-                        </td>
-                        <td>100元</td>
-                        <td>1000</td>
-                        <td>
-                            <a href="" class='cartNum'>-</a>
-                            <span> 1 </span>
-                            <a href="" class='cartNum'>+</a>
-                        </td>
-                        <td>300</td>
-                        <td>
-                            <a href="" class='cartDel'>删除</a>
-                        </td>
-                    </tr>
                 </table>
             </div>
         </div>

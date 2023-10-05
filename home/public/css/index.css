@@ -55,11 +55,6 @@ a{
 	height:200px;
 }
 
-.ads img {
-	width: 100%;
-	height: 200px;
-}
-
 .content{
 }
 
@@ -161,8 +156,8 @@ a{
 }
 
 .shop img {
-	width:200px;
-	height:200px;
+	width: 200px;
+	height: 200px;
 }
 
 .shopInfo{
@@ -222,9 +217,12 @@ a{
 	box-shadow:1px 1px 1px 1px #ccc;
 }
 
+.cartTot{
+	height:76px;
+}
 
 table tr{
-	height:30px;
+	height:40px;
 }
 
 table tr td{
@@ -240,7 +238,7 @@ table tr td{
 
 .floorFooter2Right{
 	width:1120px;
-	height:280px;
+	/*height:280px;*/
 	float: right;
 	border:1px dashed #888;
 }
@@ -357,4 +355,23 @@ table tr td{
 
 .vcodeImg{
 	margin-bottom:10px!important;
+}
+
+.goods{
+	height:40px;
+}
+
+.commit{
+	background: #e4393c;
+	color:#fff;
+	border-radius:5px;
+	padding:5px 15px;
+	font-weight:bold;
+}
+
+.PersonComment{
+	width:100%;
+	height:100px;
+	resize:none;
+	padding:5px;
 }
