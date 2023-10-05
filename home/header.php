@@ -7,7 +7,7 @@ $root = '/'.$arr[1];
 <div class="header">
     <div class='headerLogo'>
         <a href="./index.php">
-            <img src="<?php echo $arr ?>/home/public/img/logo.png" alt="">
+            <img src="./public/img/logo.png" alt="">
         </a>
     </div>
     <div class="headerLeft">

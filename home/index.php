@@ -43,7 +43,7 @@
                         <div class="right">
                             <span>热销产品</span>
                             <span>
-							<a href="">更多</a>
+							<a href="./class.php?class_id=<?php echo $row['id'] ?>&bname=<?php echo $row['name'] ?>">更多</a>
 						</span>
                         </div>
                     </div>
