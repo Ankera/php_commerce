@@ -100,47 +100,9 @@ session_start();
                     </tr>
                     <tr>
                         <td>
-                            <input type="radio" name="indent_id">
-                        </td>
-                        <td>php</td>
-                        <td>php</td>
-                        <td>php</td>
-                        <td>php</td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <input type="radio" name="indent_id">
-                        </td>
-                        <td>php</td>
-                        <td>php</td>
-                        <td>php</td>
-                        <td>php</td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <input type="radio" name="indent_id">
-                        </td>
-                        <td>php</td>
-                        <td>php</td>
-                        <td>php</td>
-                        <td>php</td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <input type="radio" name="indent_id">
-                        </td>
-                        <td>php</td>
-                        <td>php</td>
-                        <td>php</td>
-                        <td>php</td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <input type="radio" name="indent_id">
+                            <label>
+                                <input type="radio" name="indent_id">
+                            </label>
                         </td>
                         <td>php</td>
                         <td>php</td>

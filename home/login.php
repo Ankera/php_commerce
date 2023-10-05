@@ -14,7 +14,7 @@
     <div class="content2">
         <div class="login">
             <div class='loginForm'>
-                <form action="">
+                <form action="./check.php" method="post">
                     <p><label>
                             <input type="text" name='username' placeholder='用户名'>
                         </label></p>

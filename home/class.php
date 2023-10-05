@@ -12,6 +12,11 @@
     include "../public/common/config.php";
     global $conn;
 
+    if (session_status() === PHP_SESSION_NONE) {
+        // 如果会话未启动，则调用 session_start()
+        session_start();
+    }
+
     $id = $_GET['class_id'];
     $sqlGoods = "SELECT shop.*, brand.`name` AS bname, class.`name` AS cname FROM shop, brand, class WHERE shop.brand_id = brand.id AND brand.class_id = class.id AND brand.class_id = {$id} AND shop.shelf = 1 LIMIT 0, 4";
     $rstGoods = mysqli_query($conn, $sqlGoods);

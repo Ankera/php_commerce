@@ -15,7 +15,7 @@ function vcode(){
     // 3.在画布上画图像或文字
     imagefill($img,0,0,$black);
 
-    $arr=array_merge(range(0,9),range(a,z),range(A,Z));
+    $arr=array_merge(range(0,9),range('a','z'),range('A','Z'));
     shuffle($arr);
     $rand=join('',array_slice($arr,0,4));
 

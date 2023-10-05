@@ -12,6 +12,12 @@
     include 'header.php';
 
     include "../public/common/config.php";
+
+    if (session_status() === PHP_SESSION_NONE) {
+        // 如果会话未启动，则调用 session_start()
+        session_start();
+    }
+
     global $conn;
     $sql = 'SELECT * FROM advert';
     $rst = mysqli_query($conn, $sql);
