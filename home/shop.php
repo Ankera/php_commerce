@@ -9,13 +9,18 @@
 <div class="main">
     <?php
     include 'header.php';
+    include "../public/common/config.php";
+    global $conn;
+    $sqlShop = "SELECT shop.*, brand.`name` AS bname FROM shop, brand WHERE shop.brand_id = brand.id AND shop.id = 4";
+    $rstShop = mysqli_query($conn, $sqlShop);
+    $rowShop = mysqli_fetch_assoc($rstShop);
     ?>
     <div class="nav"></div>
     <div class="content">
         <div class="floor">
             <div class="floorHeader">
                 <div class="left">
-                    <span><a href=''>品牌</a> &raquo; 联想001</span>
+                    <span><a href=''>品牌</a> &raquo; <?php echo $rowShop['bname']?></span>
                 </div>
 
             </div>
@@ -30,10 +35,10 @@
                     </tr>
                     <tr>
                         <td>
-                            <img src="public/img/shop.jpg" alt="">
+                            <img style="width: 120px; height: 120px;" src="../public/uploads/<?php echo $rowShop['img']?>" alt="">
                         </td>
-                        <td>1000元</td>
-                        <td>100</td>
+                        <td><?php echo $rowShop['price']?>元</td>
+                        <td><?php echo $rowShop['stock']?></td>
                         <td>
                             <a href="">
                                 <img src="public/img/cart.jpg" alt="">
@@ -54,77 +59,27 @@
             </div>
 
             <div class="floorFooter2">
-                <div class="comment">
-                    <div class='left'>
-                        <div class="logo">
-                            <img src="public/img/logo2.png" alt="">
+                <?php
+                $id = $_GET['shop_id'];
+                $sqlComment = "SELECT `comment`.*, `user`.username as username FROM `comment`, `user` WHERE `comment`.user_id = `user`.id AND comment.shop_id = '$id'";
+                $rstComment = mysqli_query($conn, $sqlComment);
+                while ($rowComment = mysqli_fetch_assoc($rstComment)){
+                    ?>
+                    <div class="comment">
+                        <div class='left'>
+                            <div class="logo">
+                                <img src="public/img/logo2.png" alt="">
+                            </div>
+                            <div class="name"><?php echo $rowComment['username'] ?></div>
                         </div>
-                        <div class="name">金先生</div>
-                    </div>
-                    <div class="right">
-                        <span>linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!</span>
-                    </div>
-                </div>
-
-                <div class="comment">
-                    <div class='left'>
-                        <div class="logo">
-                            <img src="public/img/logo2.png" alt="">
+                        <div class="right">
+                            <span><?php echo $rowComment['content'] ?></span>
                         </div>
-                        <div class="name">金先生</div>
                     </div>
-                    <div class="right">
-                        <span>linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!</span>
-                    </div>
-                </div>
-
-                <div class="comment">
-                    <div class='left'>
-                        <div class="logo">
-                            <img src="public/img/logo2.png" alt="">
-                        </div>
-                        <div class="name">金先生</div>
-                    </div>
-                    <div class="right">
-                        <span>linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!</span>
-                    </div>
-                </div>
-
-                <div class="comment">
-                    <div class='left'>
-                        <div class="logo">
-                            <img src="public/img/logo2.png" alt="">
-                        </div>
-                        <div class="name">金先生</div>
-                    </div>
-                    <div class="right">
-                        <span>linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!</span>
-                    </div>
-                </div>
-
-                <div class="comment">
-                    <div class='left'>
-                        <div class="logo">
-                            <img src="public/img/logo2.png" alt="">
-                        </div>
-                        <div class="name">金先生</div>
-                    </div>
-                    <div class="right">
-                        <span>linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!</span>
-                    </div>
-                </div>
-
-                <div class="comment">
-                    <div class='left'>
-                        <div class="logo">
-                            <img src="public/img/logo2.png" alt="">
-                        </div>
-                        <div class="name">金先生</div>
-                    </div>
-                    <div class="right">
-                        <span>linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!linux is very much!</span>
-                    </div>
-                </div>
+                <?php
+                }
+                mysqli_close($conn);
+                ?>
             </div>
         </div>
     </div>

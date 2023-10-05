@@ -10,387 +10,78 @@
 
     <?php
     include 'header.php';
+
+    include "../public/common/config.php";
+    global $conn;
+    $sql = 'SELECT * FROM advert';
+    $rst = mysqli_query($conn, $sql);
+    while($row=mysqli_fetch_assoc($rst)){
+        $rowAds[$row['pos']] = $row;
+    }
+    mysqli_close($conn);
     ?>
 
     <div class="nav"></div>
     <div class="ads">
-        <img src="public/img/ads1.jpg" alt="">
+        <img src="../public/uploads/<?php echo $rowAds['0']['img'] ?>" alt="">
     </div>
     <div class="nav"></div>
     <div class="content">
-        <div class="floor">
-            <div class="floorHeader">
-                <div class="left">
-                    <span>1F 电脑</span>
-                </div>
-                <div class="right">
-                    <span>热销产品</span>
-                    <span>
+        <?php
+            include "../public/common/config.php";
+            global $conn;
+            $sql = 'SELECT * FROM class';
+            $rst = mysqli_query($conn, $sql);
+            $f = 1;
+            while($row=mysqli_fetch_assoc($rst)){
+        ?>
+                <div class="floor">
+                    <div class="floorHeader">
+                        <div class="left">
+                            <span><?php echo $f ?>F <?php echo $row['name']?></span>
+                        </div>
+                        <div class="right">
+                            <span>热销产品</span>
+                            <span>
 							<a href="">更多</a>
 						</span>
-                </div>
-            </div>
-
-            <div class="floorFooter">
-                <a href="">
-                    <div class='shop'>
-                        <div class="shopImg">
-                            <img src="public/img/shop.jpg" alt="">
-                        </div>
-                        <div class="nav"></div>
-                        <div class="shopInfo">
-                            <span class='shopName'>联想001</span>
-                            <span class='shopPrice'>500元</span>
                         </div>
                     </div>
-                </a>
-                <a href="">
-                    <div class='shop'>
-                        <div class="shopImg">
-                            <img src="public/img/shop.jpg" alt="">
-                        </div>
-                        <div class="nav"></div>
-                        <div class="shopInfo">
-                            <span class='shopName'>联想001</span>
-                            <span class='shopPrice'>500元</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class='shop'>
-                        <div class="shopImg">
-                            <img src="public/img/shop.jpg" alt="">
-                        </div>
-                        <div class="nav"></div>
-                        <div class="shopInfo">
-                            <span class='shopName'>联想001</span>
-                            <span class='shopPrice'>500元</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class='shop'>
-                        <div class="shopImg">
-                            <img src="public/img/shop.jpg" alt="">
-                        </div>
-                        <div class="nav"></div>
-                        <div class="shopInfo">
-                            <span class='shopName'>联想001</span>
-                            <span class='shopPrice'>500元</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
+                    <div class="floorFooter">
+                    <?php
+                    $sqlGoods = "SELECT shop.*, brand.`name` AS bname, class.`name` AS cname FROM shop, brand, class WHERE shop.brand_id = brand.id AND brand.class_id = class.id AND brand.class_id = {$row['id']} AND shop.shelf = 1 LIMIT 0, 4";
+                    $rstGoods = mysqli_query($conn, $sqlGoods);
+                    while($rowGoods=mysqli_fetch_assoc($rstGoods)){
+                        ?>
 
-        <div class="floor">
-            <div class="floorHeader">
-                <div class="left">
-                    <span>1F 电脑</span>
-                </div>
-                <div class="right">
-                    <span>热销产品</span>
-                    <span>
-							<a href="">更多</a>
-						</span>
-                </div>
-            </div>
+                            <a href="./shop.php?shop_id=<?php echo $rowGoods['id']?>">
+                                <div class='shop'>
+                                    <div class="shopImg">
+                                        <img src="../public/uploads/<?php echo $rowGoods['img']?>" alt="">
+                                    </div>
+                                    <div class="nav"></div>
+                                    <div class="shopInfo">
+                                        <span class='shopName'><?php echo $rowGoods['name']?></span>
+                                        <span class='shopPrice'><?php echo $rowGoods['price']?>元</span>
+                                    </div>
+                                </div>
+                            </a>
 
-            <div class="floorFooter">
-                <div class='shop'>
-                    <div class="shopImg">
-                        <img src="public/img/shop.jpg" alt="">
-                    </div>
-                    <div class="nav"></div>
-                    <div class="shopInfo">
-                        <span class='shopName'>联想001</span>
-                        <span class='shopPrice'>500元</span>
+                    <?php
+                    }
+                    ?>
                     </div>
                 </div>
+        <?php
+                $f+=1;
+            }
+            mysqli_close($conn);
+        ?>
 
-                <div class='shop'>
-                    <div class="shopImg">
-                        <img src="public/img/shop.jpg" alt="">
-                    </div>
-                    <div class="nav"></div>
-                    <div class="shopInfo">
-                        <span class='shopName'>联想001</span>
-                        <span class='shopPrice'>500元</span>
-                    </div>
-                </div>
-
-                <div class='shop'>
-                    <div class="shopImg">
-                        <img src="public/img/shop.jpg" alt="">
-                    </div>
-                    <div class="nav"></div>
-                    <div class="shopInfo">
-                        <span class='shopName'>联想001</span>
-                        <span class='shopPrice'>500元</span>
-                    </div>
-                </div>
-
-                <div class='shop'>
-                    <div class="shopImg">
-                        <img src="public/img/shop.jpg" alt="">
-                    </div>
-                    <div class="nav"></div>
-                    <div class="shopInfo">
-                        <span class='shopName'>联想001</span>
-                        <span class='shopPrice'>500元</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="floor">
-            <div class="floorHeader">
-                <div class="left">
-                    <span>1F 电脑</span>
-                </div>
-                <div class="right">
-                    <span>热销产品</span>
-                    <span>
-							<a href="">更多</a>
-						</span>
-                </div>
-            </div>
-
-            <div class="floorFooter">
-                <div class='shop'>
-                    <div class="shopImg">
-                        <img src="public/img/shop.jpg" alt="">
-                    </div>
-                    <div class="nav"></div>
-                    <div class="shopInfo">
-                        <span class='shopName'>联想001</span>
-                        <span class='shopPrice'>500元</span>
-                    </div>
-                </div>
-
-                <div class='shop'>
-                    <div class="shopImg">
-                        <img src="public/img/shop.jpg" alt="">
-                    </div>
-                    <div class="nav"></div>
-                    <div class="shopInfo">
-                        <span class='shopName'>联想001</span>
-                        <span class='shopPrice'>500元</span>
-                    </div>
-                </div>
-
-                <div class='shop'>
-                    <div class="shopImg">
-                        <img src="public/img/shop.jpg" alt="">
-                    </div>
-                    <div class="nav"></div>
-                    <div class="shopInfo">
-                        <span class='shopName'>联想001</span>
-                        <span class='shopPrice'>500元</span>
-                    </div>
-                </div>
-
-                <div class='shop'>
-                    <div class="shopImg">
-                        <img src="public/img/shop.jpg" alt="">
-                    </div>
-                    <div class="nav"></div>
-                    <div class="shopInfo">
-                        <span class='shopName'>联想001</span>
-                        <span class='shopPrice'>500元</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="floor">
-            <div class="floorHeader">
-                <div class="left">
-                    <span>1F 电脑</span>
-                </div>
-                <div class="right">
-                    <span>热销产品</span>
-                    <span>
-							<a href="">更多</a>
-						</span>
-                </div>
-            </div>
-
-            <div class="floorFooter">
-                <div class='shop'>
-                    <div class="shopImg">
-                        <img src="public/img/shop.jpg" alt="">
-                    </div>
-                    <div class="nav"></div>
-                    <div class="shopInfo">
-                        <span class='shopName'>联想001</span>
-                        <span class='shopPrice'>500元</span>
-                    </div>
-                </div>
-
-                <div class='shop'>
-                    <div class="shopImg">
-                        <img src="public/img/shop.jpg" alt="">
-                    </div>
-                    <div class="nav"></div>
-                    <div class="shopInfo">
-                        <span class='shopName'>联想001</span>
-                        <span class='shopPrice'>500元</span>
-                    </div>
-                </div>
-
-                <div class='shop'>
-                    <div class="shopImg">
-                        <img src="public/img/shop.jpg" alt="">
-                    </div>
-                    <div class="nav"></div>
-                    <div class="shopInfo">
-                        <span class='shopName'>联想001</span>
-                        <span class='shopPrice'>500元</span>
-                    </div>
-                </div>
-
-                <div class='shop'>
-                    <div class="shopImg">
-                        <img src="public/img/shop.jpg" alt="">
-                    </div>
-                    <div class="nav"></div>
-                    <div class="shopInfo">
-                        <span class='shopName'>联想001</span>
-                        <span class='shopPrice'>500元</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="floor">
-            <div class="floorHeader">
-                <div class="left">
-                    <span>1F 电脑</span>
-                </div>
-                <div class="right">
-                    <span>热销产品</span>
-                    <span>
-							<a href="">更多</a>
-						</span>
-                </div>
-            </div>
-
-            <div class="floorFooter">
-                <div class='shop'>
-                    <div class="shopImg">
-                        <img src="public/img/shop.jpg" alt="">
-                    </div>
-                    <div class="nav"></div>
-                    <div class="shopInfo">
-                        <span class='shopName'>联想001</span>
-                        <span class='shopPrice'>500元</span>
-                    </div>
-                </div>
-
-                <div class='shop'>
-                    <div class="shopImg">
-                        <img src="public/img/shop.jpg" alt="">
-                    </div>
-                    <div class="nav"></div>
-                    <div class="shopInfo">
-                        <span class='shopName'>联想001</span>
-                        <span class='shopPrice'>500元</span>
-                    </div>
-                </div>
-
-                <div class='shop'>
-                    <div class="shopImg">
-                        <img src="public/img/shop.jpg" alt="">
-                    </div>
-                    <div class="nav"></div>
-                    <div class="shopInfo">
-                        <span class='shopName'>联想001</span>
-                        <span class='shopPrice'>500元</span>
-                    </div>
-                </div>
-
-                <div class='shop'>
-                    <div class="shopImg">
-                        <img src="public/img/shop.jpg" alt="">
-                    </div>
-                    <div class="nav"></div>
-                    <div class="shopInfo">
-                        <span class='shopName'>联想001</span>
-                        <span class='shopPrice'>500元</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="floor">
-            <div class="floorHeader">
-                <div class="left">
-                    <span>1F 电脑</span>
-                </div>
-                <div class="right">
-                    <span>热销产品</span>
-                    <span>
-							<a href="">更多</a>
-						</span>
-                </div>
-            </div>
-
-            <div class="floorFooter">
-                <div class='shop'>
-                    <div class="shopImg">
-                        <img src="public/img/shop.jpg" alt="">
-                    </div>
-                    <div class="nav"></div>
-                    <div class="shopInfo">
-                        <span class='shopName'>联想001</span>
-                        <span class='shopPrice'>500元</span>
-                    </div>
-                </div>
-
-                <div class='shop'>
-                    <div class="shopImg">
-                        <img src="public/img/shop.jpg" alt="">
-                    </div>
-                    <div class="nav"></div>
-                    <div class="shopInfo">
-                        <span class='shopName'>联想001</span>
-                        <span class='shopPrice'>500元</span>
-                    </div>
-                </div>
-
-                <div class='shop'>
-                    <div class="shopImg">
-                        <img src="public/img/shop.jpg" alt="">
-                    </div>
-                    <div class="nav"></div>
-                    <div class="shopInfo">
-                        <span class='shopName'>联想001</span>
-                        <span class='shopPrice'>500元</span>
-                    </div>
-                </div>
-
-                <div class='shop'>
-                    <div class="shopImg">
-                        <img src="public/img/shop.jpg" alt="">
-                    </div>
-                    <div class="nav"></div>
-                    <div class="shopInfo">
-                        <span class='shopName'>联想001</span>
-                        <span class='shopPrice'>500元</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
     </div>
     <div class="nav"></div>
     <div class="ads">
-        <img src="public/img/ads2.jpg" alt="">
+        <img src="../public/uploads/<?php echo $rowAds['1']['img'] ?>" alt="">
     </div>
     <div class="nav"></div>
 

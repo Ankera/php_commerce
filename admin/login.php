@@ -13,7 +13,7 @@
         }
     </style>
 </head>
-<body id="userlogin_body">
+<body id="user_login_body">
 <form action='./check.php' method='post'>
     <div></div>
     <div id="user_login">
