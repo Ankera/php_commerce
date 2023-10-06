@@ -8,6 +8,7 @@ include  './_top.php';
             <th>订单号</th>
             <th>下单时间</th>
             <th>订单状态</th>
+            <th>操作</th>
         </tr>
         <?php
         include '../../public/common/config.php';
@@ -25,13 +26,13 @@ include  './_top.php';
 
         while($row=mysqli_fetch_assoc($rst)){
             echo "<tr>";
-            echo "<td><a href='code.php?code={$row['code']}' class='cartNum'>{$row['code']}</a></td>";
+            echo "<td><a href='./code.php?code={$row['code']}' class='cartNum'>{$row['code']}</a></td>";
             echo "<td>".date('Y-m-d H:i:s',$row['time'])."</td>";
             echo "<td>{$row['name']}</td>";
             if($row['confirm']){
-                echo "<td><a href='code.php?code={$row['code']}' class='cartNum'>评论</a></td>";
+                echo "<td><a href='./code.php?code={$row['code']}' class='cartNum'>评论</a></td>";
             }else{
-                echo "<td><a href='confirm.php?code={$row['code']}' class='cartNum'>确认</a></td>";
+                echo "<td><a href='./confirm.php?code={$row['code']}' class='cartNum'>确认</a></td>";
             }
             echo "</tr>";
         }
