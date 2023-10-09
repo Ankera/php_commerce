@@ -189,3 +189,21 @@ var_dump($arr11);
 echo '</pre>';
 
 echo preg_replace($pattern11, $str11_1, $str11);
+
+echo '<div>=============array preg_replace===============</div>';
+$pattern12 = array(
+    '/<div(.*?)>(.*?)<\/div>/',
+    '/<p(.*?)>(.*?)<\/p>/'
+);
+$str12_1 = array(
+    '<a$1 href="https://www.baidu.com/">$2</a>',
+    '<span$1>我是span标签 --- $2</span>'
+);
+
+$str12 = '我是湖北人<div style="color: red">对的是是是</div>
+分割一下
+<div style="font-size: 32px">我叫什么</div>
+分割一下
+<p style="font-size: 32px">我是P</p>
+';
+echo preg_replace($pattern12, $str12_1, $str12);
