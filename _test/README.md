@@ -1,7 +1,11 @@
 #### PHP 笔记
 
 ##### 命令
-```javascript
+```php
+@(20/0);  // @ 屏蔽错误
+
+$str = 'hello';
+echo $str??'前面的{$str}不存在';  // ?? 包含了 isset 功能，$str 如果存在就打印，否则打印后面的
 /**
  * ?:
  * `` 执行系统命令
@@ -158,4 +162,109 @@ explode('c', $str4);
 
 // 字符串分割，以2个字节分割
 str_split($str5, 2);
+```
+
+##### 使用变量,函数内部不可删除
+```php
+$name = 'Tom';
+function show1(): void
+{
+    echo $GLOBALS['name'];
+}
+
+function show2(): void
+{
+    global $name;
+    echo $name;
+}
+
+show1();
+show2();
+```
+
+##### 设置header
+```php
+header('Content-type: text/html; charset=utf-8');
+```
+
+##### 定界符
+```php
+$str2 = <<<PHP
+    <div>hello</div>
+    <div>hello</div>
+    <div>hello</div>
+PHP;
+```
+
+##### if else 简写
+```php
+$status = false;
+if($status):
+    echo 'hello';
+else:
+    echo 'world---';
+endif;
+```
+
+##### break 2 跳出多层循环
+```php
+$num = 0;
+while (true) {
+    $num++;
+    switch ($num) {
+        case $num % 2 === 0:
+            echo $num.'<hr>';
+            break;
+        case $num % 15 === 0:
+            echo $num.'<hr>';
+            break 2;
+    }
+}
+```
+
+##### PHP严格模式
+```php
+// 严格模式, 头部加
+declare(strict_types = 1);
+
+function show_num(int $num): int
+{
+    return $num;
+}
+
+show_num('22'); // 直接报错，必须是 int 类型
+```
+
+
+##### 变量函数
+```php
+$name = "Tom";
+function showName(&$n): string
+{
+    $n = 'John';
+    return $n;
+}
+
+echo showName($name);
+
+$callback = 'showName';
+echo $callback($name);
+```
+
+```php
+$file = 'hello.png';
+$ext = trim(strchr($file, '.'), '.');
+$action = strtolower($ext);
+
+function jpg():void
+{
+    echo 'jpg function';
+}
+
+function png():void
+{
+    echo 'png function';
+}
+
+$action();
 ```
